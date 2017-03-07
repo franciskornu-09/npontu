@@ -14,10 +14,26 @@
 //    });
 // }
 // } ;
+document.getElementById("findContact").addEventListener("click", findContact);
 
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-console.log(navigator.contacts);
+function findContacts() {
+   var options = new ContactFindOptions();
+   options.filter = "";
+   options.multiple = true;
+
+   fields = ["Babe"];
+   navigator.contacts.find(fields, contactfindSuccess, contactfindError, options);
+    
+   function contactfindSuccess(contacts) {
+      for (var i = 0; i < contacts.length; i++) {
+         alert("Display Name = " + contacts[i].displayName);
+      }
+   }
+	
+   function contactfindError(message) {
+      alert('Failed because: ' + message);
+   }
+	
 }
 })();
 
