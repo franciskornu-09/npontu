@@ -3,7 +3,7 @@
 document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 function onDeviceReady() {
 
-document.getElementById("contact").onclick = function() {
+document.getElementById("search").onclick = function() {
 navigator.contacts.pickContact(function(contact){
        alert('The following contact has been selected:' + JSON.stringify(contact));
 
